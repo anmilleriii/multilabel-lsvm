@@ -1,0 +1,8 @@
+nltk
+seaborn
+matplotlib
+sklearn
+collections
+numpy
+pandas
+re
