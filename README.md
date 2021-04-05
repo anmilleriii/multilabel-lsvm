@@ -3,8 +3,6 @@
 Utility-specific information regarding equipment and maintenance programs has been redacted, making this view-only.
 
 ## Purpose
-This repo documents an example of multi-label text classification.
-
 The use case is classification of electric plant (utility) equipment failure mitigation and maintenance strategies into general categories to identify trends and deficiencies.
 
 ## Background
