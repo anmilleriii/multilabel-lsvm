@@ -1,15 +1,15 @@
 
-# DISCLAIMER
-Particular information regarding utility equipment and maintenance programs has been redacted, rendering this model unusable in its current state.
+# Disclaimer
+Utility-specific information regarding equipment and maintenance programs has been redacted, making this view-only.
 
 ## Purpose
-This text-classification model is documented herein to provide an example of multi-label text classification.
+This repo documents an example of multi-label text classification.
 
 The use case is classification of electric plant (utility) equipment failure mitigation and maintenance strategies into general categories to identify trends and deficiencies.
 
 ## Background
 
-This model classifies recods in the free-text 'Mitigation' field of a plant equipment database (71,391 records) into based on 'Mitigation' and 'Maintenance' strategy type. Records are binned into one or multiple of the following classes:
+This model classifies recods in the free-text 'Mitigation' field of a plant equipment database (71,000 records) into based on 'Mitigation' and 'Maintenance' strategy type. Records are binned into one or multiple of the following classes:
 
 - maintenance	
 - operational	
