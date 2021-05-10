@@ -1,13 +1,13 @@
 
 # Disclaimer
-Utility-specific information regarding equipment and maintenance programs has been redacted, making this view-only.
+Utility specific information regarding equipment and maintenance programs has been redacted, rendering this view-only.
 
 ## Purpose
-The use case is classification of electric plant (utility) equipment failure mitigation and maintenance strategies into general categories to identify trends and deficiencies.
+The use case is classification of electric plant (utility) equipment failure mitigation strategies into general categories to identify trends and deficiencies.
 
 ## Background
 
-This model classifies recods in the free-text 'Mitigation' field of a plant equipment database (71,000 records) into based on 'Mitigation' and 'Maintenance' strategy type. Records are binned into one or multiple of the following classes:
+This model classifies recods in the free-text 'Mitigation' field of a plant equipment database (71,000 records) into based on 'Mitigation' strategy type. Records are binned into one or multiple of the following classes:
 
 - maintenance	
 - operational	
@@ -52,15 +52,11 @@ To run the 'Mitigation' classifier
 
 `py ./1_mitigation/mitigation_model.py`
 
-or
-
-`py ./2_maintenance/maintenance_model.py`
-
 Prediction output will be in the respective 'out' directories
 
 ## Limitations
 
-1. 'train_set' data set is used based on naive string matching with some oversight. This should be improved by manually going through some 'Mitigation' fields and classifying them by hand.	
-2. Accuracy is not a meaningful metric for the 'apply_set' data, since the model is used to make predictions (must spot check manually)
-3. Foreign-language entries are somewhat correctly classified, but with low fidelity
-4. 'train_set' data (3,569 records) are not classified by NLP, but rather string-matching/manually
+1. 'train_set' data set is used based on naive string matching with some oversight. This should be improved by manually classifying a greater sample of 'Mitigation' fields by hand.
+2. Accuracy is not a meaningful metric for the 'apply_set' data, since the model is used to make predictions (i.e., must spot check manually)
+3. Foreign-language entries are classified with low fidelity due to lack of manual classification.
+4. 'train_set' data (3,569 records) are not classified by NLP, but rather string-matching/manually with inherent biases.
