@@ -1,1 +1,0 @@
-SELECT * FROM SPVAT_maintenance ORDER BY train_set_2 DESC, validate_set_2 DESC;

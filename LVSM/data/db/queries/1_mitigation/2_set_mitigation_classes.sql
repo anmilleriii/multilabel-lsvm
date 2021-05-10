@@ -81,21 +81,6 @@ UPDATE SPVAT_cleansed_data
 SET unknown_mitigation=1
 WHERE apply_set_1 == 0
 AND maintenance == 0 AND operational == 0 AND design_and_engineering == 0 AND supply_chain == 0;
--- AND Mitigation NOT LIKE '%There are no activities that are performed%' 
--- AND (Mitigation LIKE '%None%' 
--- OR Mitigation LIKE '%Not provided%' 
--- OR Mitigation LIKE '%None provided%'
--- OR Mitigation LIKE '%N/A%'
--- OR Mitigation LIKE '%#VALUE%'
--- OR Mitigation LIKE '');
-
--- Show Table --
-
--- SELECT ROWID, Mitigation, Classification, maintenance, operational, design_and_engineering, physical_barrier, supply_chain, unknown_mitigation, train_set_1, validate_set_1, apply_set_1
--- FROM SPVAT_cleansed_data
--- WHERE apply_set_1 <> 1
--- ORDER BY train_set_1 DESC, validate_set_1 DESC;
-
 
 SELECT ROWID, Mitigation, Classification, maintenance, unknown_mitigation, train_set_1, validate_set_1, apply_set_1
 FROM SPVAT_cleansed_data

@@ -6,7 +6,7 @@ This Linear Support Vector Machine (LSVM) classifier categorizes failure mitigat
 
 # Stack
 - Numpy for data manipulation
-- Linear Support Vector Machine (LVSM) from sklearn
+- Linear Support Vector Machine (LVSM) from sklearn (TensorFlow in other model)
 - Stopword dictionary from Natural Language Toolkit (NLTK)
 - Pandas, matplotlib, and seaborn for plotting
 
@@ -17,7 +17,7 @@ This Linear Support Vector Machine (LSVM) classifier categorizes failure mitigat
 MIT License 2020
 '''
 
-# Natural language processing (NLP) imports
+# NLP imports
 import re
 import nltk
 from collections import Counter
@@ -45,7 +45,6 @@ import matplotlib.pyplot as plt
 
 
 class NLPModel():
-
     def __init__(self, df):
         '''
         Configure dataframe as CSV file of plant equipment
@@ -56,7 +55,6 @@ class NLPModel():
         '''
         Make preliminary plots of equipment CSV
         '''
-
         # Plot frequency distribution of 'Mitigation' strategy categories
         df = self.df
         dfMitigation = df.drop(['Fleet', 'Station', 'Unit', 'UNID', 'Status', 'Function', 'System', 'Component', 'ComponentDesc', 'Subcomponent',
@@ -67,7 +65,7 @@ class NLPModel():
                                 'replacement', 'visual_inspection', 'time_base_replacement', 'component_overhaul',
                                 'periodic_cycling', 'no_action_required', 'unknown_maintenance', 'train_set_1',
                                 'validate_set_1', 'apply_set_1', 'train_set_2', 'validate_set_2', 'apply_set_2',
-                                'NewComponent', 'NewSystem'], axis=1)
+                                'NewComponent', 'NewSystem'], axis = 1)
         numberOfOccurrences = []
         categories = list(dfMitigation.columns.values)
         for category in categories:
@@ -103,6 +101,7 @@ class NLPModel():
         # Clean text for mitigation
         df['Mitigation'] = df['Mitigation'].map(
             lambda Mit: self.cleanText(Mit))
+
         '''
         Split data into a training, validation and "application" sets
         
@@ -146,9 +145,7 @@ class NLPModel():
 
     def cleanText(self, text):
         '''
-        Clean 'Mitigation' field text.
-
-        Text cleaning simply taken from medium.com article
+        Clean 'Mitigation' field text. TODO: refine.
         '''
         text = text.lower()
         text = re.sub(r"what's", "what is ", text)
@@ -169,7 +166,7 @@ class NLPModel():
 if __name__ == "__main__":
     '''
     Validate and then apply the model to predict 'Mitigation' field categories for entire dataset
-    First train/validate, then application sets
+    First train/validate, then application sets. Sample size values are from SQL db.
     '''
     sampleSizes = [3569, 67822]
     for sampleIndex, sampleSize in enumerate(sampleSizes):

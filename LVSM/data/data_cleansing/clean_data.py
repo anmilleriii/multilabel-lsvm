@@ -1,5 +1,12 @@
 '''
 Clean 'Component', 'Fleet', 'System', 'Mitigation' fields and output csv.
+TODO: Refine.
+
+# Author
+@ Al Miller
+
+# License
+MIT License 2020
 '''
 # Import libraries and define functions
 import re
